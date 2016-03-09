@@ -1,6 +1,6 @@
 package lab1;
 
-public class TeaBeverage extends Beverage {
+public abstract class TeaBeverage extends Beverage {
 	private String size;
 
 	public TeaBeverage() {

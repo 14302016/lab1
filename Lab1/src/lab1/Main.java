@@ -29,11 +29,9 @@ public class Main {
 
 		Beverage order;
 		if (beveStr.equals("espresso")) {
-			order = new CoffeeBeverage();
 			order = new Espresso();
 			((CoffeeBeverage) order).setSize(disArr[i]);
 		} else if (beveStr.equals("houseblend")) {
-			order = new CoffeeBeverage();
 			order = new HouseBlend();
 			((CoffeeBeverage) order).setSize(disArr[i]);
 		} else if (beveStr.equals("mocha")) {

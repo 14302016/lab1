@@ -11,7 +11,9 @@ public class GreenTea extends TeaBeverage {
 		return description;
 	}
 
-	public double cost() {
-		return super.cost() + 1.0;
+	@Override
+	public String getDescription() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
