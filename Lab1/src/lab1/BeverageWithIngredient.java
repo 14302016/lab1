@@ -6,6 +6,7 @@ public class BeverageWithIngredient extends Beverage {
 
 	public BeverageWithIngredient(Beverage drink) {
 		this.drink = drink;
+		this.description = drink.getDescription();
 	}
 	
 	public String getDescription(){
@@ -14,5 +15,10 @@ public class BeverageWithIngredient extends Beverage {
 	
 	public double cost() {
 		return drink.cost();
+	}
+	
+	public void setSize(String size)
+	{
+		drink.setSize(size);
 	}
 }

@@ -1,16 +1,23 @@
 package lab1;
 
-public class TeaBased implements SizeFactor {
+import java.util.HashMap;
 
+public class TeaBased implements SizeFactor 
+{
+	private HashMap<String, Double> mSizeCost;
+	
+	public TeaBased()
+	{
+		mSizeCost = new HashMap<String, Double>();
+		mSizeCost.put("small", 0.2);
+		mSizeCost.put("medium", 0.5);
+		mSizeCost.put("large", 0.7);
+	}
+	
 	@Override
-	public double sizeCost(String size) {
-		if (size.toLowerCase().equals("small")) {
-			return 0.2;
-		} else if (size.toLowerCase().equals("medium")) {
-			return 0.5;
-		} else {
-			return 0.7;
-		}
+	public double sizeCost(String size) 
+	{
+		return mSizeCost.get(size);
 	}
 
 }
