@@ -12,6 +12,8 @@ public class TeaBased implements SizeFactor
 		mSizeCost.put("small", 0.2);
 		mSizeCost.put("medium", 0.5);
 		mSizeCost.put("large", 0.7);
+		mSizeCost.put("grand", 0.9);
+		
 	}
 	
 	@Override

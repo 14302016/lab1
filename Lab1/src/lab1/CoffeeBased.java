@@ -13,6 +13,7 @@ public class CoffeeBased implements SizeFactor
 		mSizeCost.put("small", 0.4);
 		mSizeCost.put("medium", 0.7);
 		mSizeCost.put("large", 1.0);
+		mSizeCost.put("grand", 1.3);
 	}
 	
 	@Override

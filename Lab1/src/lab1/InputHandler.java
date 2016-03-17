@@ -24,12 +24,21 @@ public final class InputHandler
 		//First class have to be the base drink.
 		addBevClass("espresso", Espresso.class);
 		addBevClass("houseblend", HouseBlend.class);
+		addBevClass("decaf", Decaf.class);
+		
 		addBevClass("mocha", Espresso.class, Chocolate.class);
 		addBevClass("latte", Espresso.class, Milk.class);
 		addBevClass("cappuccino", Espresso.class, WhipCream.class);
+		
+		//decaf coffee menu
+		addBevClass("decaf mocha", Decaf.class, Chocolate.class);
+		addBevClass("decaf latte", Decaf.class, Milk.class);
+		addBevClass("decaf cappuccino", Decaf.class, WhipCream.class);
+		
 		addBevClass("green tea", GreenTea.class);
 		addBevClass("red tea", RedTea.class);
 		addBevClass("white tea", WhiteTea.class);
+		
 		addBevClass("flower tea", GreenTea.class, Jasmine.class);
 		addBevClass("ginger tea", GreenTea.class, Ginger.class);
 		addBevClass("tea latte", RedTea.class, Milk.class);
