@@ -10,9 +10,7 @@ public class Main
 		
 		if(args[0].matches("^[1-9]\\d*$"))
 		{
-			//TODO: Initialize class after implementation
-			System.out.println("This input format is not supported yet.");
-			return;
+			inputFormatter = new MultiDrinkInputFormatter();
 		}
 		else
 		{
