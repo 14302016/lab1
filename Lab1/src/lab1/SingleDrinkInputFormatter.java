@@ -13,17 +13,10 @@ public class SingleDrinkInputFormatter implements InputFormatter
 
 		int i;
 		StringBuilder bevStrBuilder = new StringBuilder();
-		for (i = 0; i < disArr.length; i++)
+		bevStrBuilder.append(disArr[0]);
+		for (i = 1; i < disArr.length - 1; i++) //Add any intermediate arguments between first word and size
 		{
-			if (disArr[i].equals("small") || disArr[i].equals("medium")
-					|| disArr[i].equals("large"))
-			{
-				break;
-			}
-			else
-			{
-				bevStrBuilder.append(disArr[i]);
-			}
+			bevStrBuilder.append(" " + disArr[i]);
 		}
 
 		if (i >= disArr.length) {
@@ -52,7 +45,7 @@ public class SingleDrinkInputFormatter implements InputFormatter
 			return null;
 		}
 
-		order.setSize(disArr[i]);
+		order.setSize(disArr[disArr.length - 1]);
 		
 		//Add ingredients
 		for (i++; i < disArr.length; i++) 
