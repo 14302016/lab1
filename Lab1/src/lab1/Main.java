@@ -18,6 +18,9 @@ public class Main
 		}
 		
 		Beverage bevs[] = inputFormatter.process(args);
+		
+		if(bevs == null) return;
+		
 		double cost = 0.0d;
 		
 		//Sum all the costs

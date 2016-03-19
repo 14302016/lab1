@@ -37,7 +37,10 @@ public class MultiDrinkInputFormatter implements InputFormatter
 			++argIndex;
 			
 			//Process the args for a single drink and add it to returnVal
-			returnVal.add(backend.process(singleDrinkArgs.toArray(new String[]{}))[0]);
+			singleDrinkArgs.toArray(new String[]{});
+			Beverage processed[] = backend.process(singleDrinkArgs.toArray(new String[]{}));
+			if(processed == null || processed.length == 0) return null;
+			returnVal.add(processed[0]);
 		}
 		
 		return returnVal.toArray(new Beverage[]{});

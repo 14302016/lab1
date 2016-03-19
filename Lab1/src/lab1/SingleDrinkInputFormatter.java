@@ -13,10 +13,19 @@ public class SingleDrinkInputFormatter implements InputFormatter
 
 		int i;
 		StringBuilder bevStrBuilder = new StringBuilder();
-		bevStrBuilder.append(disArr[0]);
+		
+		try
+		{
+			bevStrBuilder.append(disArr[0]);	
+		}
+		catch(IndexOutOfBoundsException ex)
+		{
+			System.out.println("Not enough input arguments");
+		}
+		
 		for (i = 1; i < disArr.length - 1; i++) //Add any intermediate arguments between first word and size
 		{
-			bevStrBuilder.append(" " + disArr[i]);
+			bevStrBuilder.append(" " + disArr[i]);	
 		}
 
 		if (i >= disArr.length) {
