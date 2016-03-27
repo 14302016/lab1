@@ -4,41 +4,20 @@ public class SingleDrinkInputFormatter implements InputFormatter
 {
 	@Override
 	public Beverage[] process(String... args) 
-	{
-		String[] disArr = new String[args.length];
-		for (int j = 0; j < args.length; j++) 
-		{
-			disArr[j] = args[j].toLowerCase();
-		}
-
-		int i;
-		StringBuilder bevStrBuilder = new StringBuilder();
+	{	
+		int i = 0;
 		
-		try
-		{
-			bevStrBuilder.append(disArr[0]);	
-		}
-		catch(IndexOutOfBoundsException ex)
-		{
-			System.out.println("Not enough input arguments");
-		}
-		
-		for (i = 1; i < disArr.length - 1; i++) //Add any intermediate arguments between first word and size
-		{
-			bevStrBuilder.append(" " + disArr[i]);	
-		}
-
-		if (i >= disArr.length) {
-			System.out.println("Must set a size!");
-			return null;
-		}
-
-		String beveStr = bevStrBuilder.toString();
-
 		Beverage order = null;
+		
 		try
 		{
-			order = InputHandler.getSingleton().getBeverageInstance(beveStr);
+			order = InputHandler.getSingleton().getBeverageInstance(args[0]);
+			i = 1;
+			if(order == null)
+			{
+				order = InputHandler.getSingleton().getBeverageInstance(args[0] + " " + args[1]);
+				i = 2;
+			}
 		}
 		catch (InstantiationException | IllegalAccessException e) 
 		{
@@ -46,15 +25,26 @@ public class SingleDrinkInputFormatter implements InputFormatter
 			e.printStackTrace();
 			return null;
 		}
+		catch (ArrayIndexOutOfBoundsException e)
+		{
+			System.out.println("Not enough input arguments");
+			return null;
+		}
 		
+		String[] disArr = new String[args.length];
+		for (int j = 0; j < args.length; j++) 
+		{
+			disArr[j] = args[j].toLowerCase();
+		}
+
 		//Check if drink with input name exists
 		if(order == null)
 		{
-			System.out.println("Illegal input: " + beveStr);
+			System.out.println("The specified base drink is not found");
 			return null;
 		}
 
-		order.setSize(disArr[disArr.length - 1]);
+		order.setSize(disArr[i]);
 		
 		//Add ingredients
 		for (i++; i < disArr.length; i++) 
